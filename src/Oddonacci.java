@@ -15,14 +15,35 @@
  * 
  */
 
-
 public class Oddonacci {
-	
+
+	static long startTime = System.nanoTime();
+  //  Stopwatch timer = new Stopwatch().start();
+
 	
 
 	public static void main(String[] args) {	
-		int answer = linearOddo(3,1,1,1,1);
-		System.out.println(answer);
+		/*int answer = linearOddo(3,41,1,1,1);
+		System.out.println("First linear implementation : " + answer);
+		
+		int answerFab = linearOdd(5,1,1,1);
+		System.out.println("Second linear implementation : " + answerFab);
+		*/
+		
+		
+		System.out.println(linearOdd(10, 1,1,1));
+		System.out.println(linearOddo(3, 10, 1, 1, 1));
+	//	long start = System.currentTimeMillis();
+		//System.out.println("Start : " + System.currentTimeMillis());
+		//long answerTime = linearOddoo(3, 10000, 1, 1 ,1);
+	//	System.out.println("Number Oddo(40));
+
+		//System.out.println("First  linear implementation & time : " + answerTime);
+	//	long time = System.currentTimeMillis() - start;
+	//	System.out.println("End : " + time);
+
+	//	System.out.println(totalTime);
+
 	}
 	
 	/*
@@ -46,5 +67,38 @@ public class Oddonacci {
 			return (linearOddo(i, k, temp_2, temp_3, temp_4));
 		}
 	}
+	
+	public static int linearOdd(int index, int temp_1, int temp_2, int temp_3){
+		int temp = temp_1 + temp_2 + temp_3;
+		
+		if (index < 4){
+			return 1;
+		}else if(index == 4){
+			return temp;
+		}
+
+		return linearOdd(index- 1, temp_2,temp_3, temp);
+	}
+
+	 public static long linearOddoo(int i, int k, int temp_1, int temp_2, int temp_3) {
+			int temp_4 = temp_1 + temp_2 + temp_3; // Current Oddonacci number.
+			i++;
+			if ((k ==1) || (k==2) || (k==3))	// First base case.
+				return 1;
+			else if (i == k)					// Second base case.
+				return temp_4;
+			else {
+				return (linearOddoo(i, k, temp_2, temp_3, temp_4));
+			}
+		}
+	 
+	 public static int Oddo(int i){
+		    if(i == 1 || i == 2 || i == 3){
+		      return 1; 
+		    }
+		    else{
+		      return Oddo(i - 1) + Oddo(i - 2) + Oddo(i - 3);
+		    }
+		  }
 
 }
